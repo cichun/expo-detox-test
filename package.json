@@ -8,7 +8,7 @@
     "test": "node_modules/.bin/jest test/**/*.spec.js",
     "eject": "expo eject",
     "downloadExpoApp": "scripts/downloadExpoApp.sh",
-    "testGUI": 'detox test --configuration ios'
+    "testGUI": "detox test --configuration ios"
   },
   "dependencies": {
     "expo": "~40.0.0",
