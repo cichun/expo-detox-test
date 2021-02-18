@@ -6,7 +6,9 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "test": "node_modules/.bin/jest test/**/*.spec.js",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "downloadExpoApp": "scripts/downloadExpoApp.sh",
+    "testGUI": 'detox test --configuration ios'
   },
   "dependencies": {
     "expo": "~40.0.0",
@@ -20,7 +22,7 @@
   },
   "devDependencies": {
     "@babel/core": "~7.9.0",
-    "detox": "17.14.3",
+    "detox": "^17.14.3",
     "detox-expo-helpers": "^0.6.0",
     "expo-detox-hook": "^1.0.10",
     "jest": "^26.6.3",
