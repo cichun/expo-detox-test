@@ -1,36 +1,53 @@
-import {StatusBar} from 'expo-status-bar';
 import React from 'react';
-import {Alert, Button, StyleSheet, Text, TextInput, View} from 'react-native';
+import {StyleSheet} from 'react-native';
+import {Container, Content, Form, H3, Header, Icon, Picker} from "native-base";
 
 export default class App extends React.Component {
 
     state = {
-        textInputValue: ''
+        textInputValue: '',
+        pickerSelectedKey: 'key0'
+    };
+
+    onPickerChange = (newSelectedKey) => {
+        this.setState({pickerSelectedKey: newSelectedKey})
     };
 
     render() {
+
         return (
-            <View style={styles.container}>
-                <Text testID='welcome'>Sample project in React Native to try out Detox E2E tests</Text>
-                <StatusBar style="auto"/>
+            <Container testID={'tidContainer'}>
+                <Header testID={'tidHeader'}/>
+                <Content testID={'tidContent'}>
+                    <H3 testID='welcome' style={styles.welcomeStyle}>
+                        Sample project in React Native to try out Detox E2E tests,
+                        using native-base framework
+                    </H3>
 
-                <TextInput
-                    testID={'messageInput'}
-                    style={styles.textInput}
-                    onChangeText={text => this.setState({textInputValue:text})}
-                    // value={value}
-                    placeholder={'Type something here'}
-                />
-
-
-                <Button
-                    testID={'showAlertButton'}
-                    title={'Show message from input above'}
-                    onPress={() => Alert.alert('You have typed: ', this.state.textInputValue)}
-                    color="#841584"
-                />
-            </View>
+                    <Form testID={'tidForm'}>
+                        <Picker
+                            testID={'tidPicker'}
+                            style={styles.pickerStyle}
+                            itemStyle={styles.itemStyle}
+                            mode="dropdown"
+                            selectedValue={this.state.pickerSelectedKey}
+                            onValueChange={this.onPickerChange}
+                            iosIcon={
+                                <Icon name="chevron-down-outline"
+                                      style={{color: 'rgba(255,255,255,0.8)', lineHeight: 20}}/>
+                            }
+                        >
+                            <Picker.Item label="Wallet" value="key0" testID={'tidPickerItem0'}/>
+                            <Picker.Item label="ATM Card" value="key1" testID={'tidPickerItem1'}/>
+                            <Picker.Item label="Debit Card" value="key2" testID={'tidPickerItem2'}/>
+                            <Picker.Item label="Credit Card" value="key3" testID={'tidPickerItem3'}/>
+                            <Picker.Item label="Net Banking" value="key4" testID={'tidPickerItem4'}/>
+                        </Picker>
+                    </Form>
+                </Content>
+            </Container>
         );
+
     }
 }
 
@@ -43,11 +60,22 @@ const styles = StyleSheet.create({
     },
     textInput: {
         height: 40,
-        width:200,
+        width: 200,
         textAlign: 'center',
         borderColor: 'gray',
         borderWidth: 1,
-        borderRadius:10,
-        margin:40
+        borderRadius: 10,
+        margin: 40
+    },
+    pickerStyle: {
+        width: '100%',
+        backgroundColor: 'gray'
+    },
+    itemStyle: {
+        marginLeft: 0,
+        paddingLeft: 15,
+    },
+    welcomeStyle: {
+        margin: 30
     }
 });
