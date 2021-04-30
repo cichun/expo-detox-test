@@ -1,5 +1,7 @@
 # expo-detox-test
-Sample project in React Native to try out Detox E2E tests
+Sample project in React Native to try out Detox E2E tests. 
+
+This app is built with Expo managed workflow using Expo SDK 41 🆕
 
 ## Demo
 <img src="https://raw.githubusercontent.com/cichun/expo-detox-test/main/docs/demoScreen.gif"/>
