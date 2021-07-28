@@ -15,7 +15,7 @@
     "simulator": {
       "type": "ios.simulator",
       "device": {
-        "type": "iPhone 12 Pro Max"
+        "type": "iPhone 11"
       }
     },
     "emulator": {
@@ -27,7 +27,7 @@
   },
   "configurations": {
     "ios": {
-      "device": "iPhone 12 Pro Max",
+      "device": "iPhone 11",
       "app": "ios",
       "type": "ios.simulator",
       "binaryPath": "e2e/bin/Exponent.app"
